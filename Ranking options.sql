@@ -35,12 +35,12 @@ from emp
 order by sal
 ;
 
---id    name    job        hiredate   sal 
-------- -----   --------   --------   ----
---7369	SMITH	  CLERK	17- DEC-80	    800
---7654	MARTIN	 SALESMAN	17-SEP-81	  1250
---7521	WARD	  SALESMAN	20-FEB-81	  1250
---7499	ALLEN	  SALESMAN	20-FEB-81	  1600
+--id    name    job            hiredate          sal 
+------- -----   --------       --------         ----
+--7369	SMITH	  CLERK	 17- DEC-80	   800
+--7654	MARTIN  SALESMAN	 17-SEP-81	  1250
+--7521	WARD	  SALESMAN	 20-FEB-81	  1250
+--7499	ALLEN	  SALESMAN	 20-FEB-81	  1600
 --7782	CLARK	  MANAGER	  09-JUN-81	  2450
 --7698	BLAKE	  MANAGER	  01-MAY-81	  2850
 --7566	JONES	  MANAGER	  02-APR-81	  2975
@@ -58,12 +58,12 @@ order by sal
 --Rank by date of employment (last column)
 --Rankiranje prema datumu zaposljavnja (zadnji stupac)
 
---id    name    job        hiredate   sal   hire_rank
-------- -----   --------   --------   ----  ---
---7369	SMITH	  CLERK	    17-DEC-80	  800	  1
---7654	MARTIN	SALESMAN	17-SEP-81	  1250	7
---7521	WARD	  SALESMAN	20-FEB-81	  1250	2
---7499	ALLEN	  SALESMAN	20-FEB-81	  1600	2
+--id    name    job           hiredate     sal    hire_rank
+------- -----   --------       --------   ----       ---
+--7369	SMITH	  CLERK	  17-DEC-80	  800	      1
+--7654	MARTIN  SALESMAN	  17-SEP-81	  1250	7
+--7521	WARD	  SALESMAN	  20-FEB-81	  1250	2
+--7499	ALLEN	  SALESMAN	  20-FEB-81	  1600	2
 --7782	CLARK	  MANAGER	  09-JUN-81	  2450	6
 --7698	BLAKE	  MANAGER	  01-MAY-81	  2850	5
 --7566	JONES	  MANAGER	  02-APR-81	  2975	4
@@ -82,12 +82,12 @@ order by sal
 --dense_rank () if there are same values it ??skips 3 while the rank () stays at 3
 --dense_rank() u istim vrijednostima preskace 3 dok kod rank() ostaje na 3
 
---id    name    job        hiredate   sal   sal_rank  sal_dense_rank
-------- -----   --------   --------   ----  ---     ---------------
---7369	  SMITH	  CLERK	    17-DEC-80	  800	  1	        1
+--id           name        job       hiredate    sal     sal_rank  sal_dense_rank
+-------    --------   --------       -------     ----    --------     --------
+--7369	  SMITH	  CLERK	 17-DEC-80	  800	      1	        1
 -------------------------------------------------------------------
 --7521	  WARD	  SALESMAN	20-FEB-81	  1250	2	        2
---7654	  MARTIN	SALESMAN	17-SEP-81	  1250	2	        2
+--7654	  MARTIN	  SALESMAN	17-SEP-81	  1250	2	        2
 --7499	  ALLEN	  SALESMAN	20-FEB-81	  1600	4	        3
 --------------------------------------------------------------------
 --7782	  CLARK	  MANAGER	  09-JUN-81	  2450	5	        4
@@ -106,16 +106,16 @@ order by sal
 ;
 --row_number () To ensure ROW_NUMBER is consistent, we must provide sorting information sufficient that we would not encounter a sorting "tie"
 --In this case, id is unique.
---row_number() u istim vrijednostima moûe biti bilo koji redak zato moramo staviti joö jednu vrijednost npr. id
+--row_number() u istim vrijednostima mo≈æe biti bilo koji redak zato moramo staviti jo≈° jednu vrijednost npr. id
 
---id    name    job        hiredate   sal   sal_rank  sal_dense_rank
-------- -----   --------   --------   ----  ---     ---------------
---7369	SMITH	  CLERK	    17-DEC-80	  800	  1
+--id        name      job        hiredate   sal   sal_row_number 
+-------     -----   --------   --------     ----  ---------     
+--7369	SMITH	  CLERK	  17-DEC-80	  800	      1
 -------------------------------------------------------
---7521	WARD	  SALESMAN	20-FEB-81	  1250	2
---7654	MARTIN	SALESMAN	17-SEP-81	  1250	3
+--7521	WARD	  SALESMAN	  20-FEB-81	  1250	2
+--7654	MARTIN  SALESMAN	  17-SEP-81	  1250	3
 -------------------------------------------------------
---7499	ALLEN	  SALESMAN	20-FEB-81	  1600	4
+--7499	ALLEN	  SALESMAN	  20-FEB-81	  1600	4
 --7782	CLARK	  MANAGER	  09-JUN-81	  2450	5
 --7698	BLAKE	  MANAGER	  01-MAY-81	  2850	6
 --7566	JONES	  MANAGER	  02-APR-81	  2975	7
